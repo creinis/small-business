@@ -1,5 +1,29 @@
-
 #!/bin/bash
+
+source ./auth.sh
+
+authenticate
+
+if [[ "$USER_ROLE" == "master" ]]; then
+    echo -e "Access granted to Admin Menu\n"
+    echo -e "Welcome Master Adm.\n"
+    echo "1. Adm Area"
+    echo "2. Client Area"
+    read MASTER_OPTION
+    case $MASTER_OPTION in
+        1)
+            source ./adm.sh
+            echo "Accessing Admin Area..."
+            ADM_MENU
+            ;;
+        2)
+            echo "Accessing Client Area..."
+            ;;
+        *)
+            echo "Invalid option. Defaulting to Client Area..."
+            ;;
+    esac
+fi
 
 PSQL="psql -X --username=carlosreinis --dbname=small_business --tuples-only -c"
 

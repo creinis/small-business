@@ -8,6 +8,18 @@ CREATE DATABASE small_business
 
 \connect small_business
 
+-- Habilitar extensão pgcrypto
+CREATE EXTENSION pgcrypto;
+
+-- Table users / loggin
+CREATE TABLE public.users (
+    user_id serial PRIMARY KEY,
+    username varchar(50) NOT NULL UNIQUE,
+    password varchar(255) NOT NULL,
+    role varchar(10) NOT NULL, -- 'master' ou 'user'
+    created_at timestamp DEFAULT current_timestamp
+);
+
 -- Table employees
 CREATE TABLE public.employees (
     employee_id serial PRIMARY KEY,
