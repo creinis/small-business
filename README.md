@@ -1,97 +1,94 @@
 # Small Business Management System
 
-
 ###### Technologies:
 <p align="center">
 <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/postgresql-colored.svg" width="75" height="75" alt="PostgreSQL" style="margin: 10px 15px 0 15px;" />
 <img src="https://img.icons8.com/color/75/000000/console.png" width="75" height="75" alt="Bash" style="margin: 10px 15px 0 15px;" />
 </p>
 
-- **Bash:** Utilizado para escrever scripts de shell que facilitam a configuração, manutenção e consulta do banco de dados.
-- **PostgreSQL:** Sistema de gerenciamento de banco de dados relacional utilizado para armazenar os dados dos elementos químicos.
+- **Bash:** Used to write shell scripts that facilitate the setup, maintenance, and querying of the database.
+- **PostgreSQL:** Relational database management system used to store data of chemical elements.
 
-## Descrição
+## Description
 
-Este projeto é um sistema de gerenciamento para pequenas empresas, desenvolvido para ajudar a gerenciar clientes, funcionários, serviços e agendamentos de um salão de beleza. O sistema é composto por um banco de dados PostgreSQL e um script em Shell para interação com o banco de dados, permitindo consultas e atualizações.
+This project is a management system for small businesses, developed to help manage customers, employees, services, and appointments for a beauty salon. The system consists of a PostgreSQL database and a Shell script for interaction with the database, allowing queries and updates.
 
-## Estrutura do Projeto
+## Project Structure
 
-### Arquivo SQL de Criação do Banco de Dados
+### Database Creation SQL File
 
-O arquivo `small_business.sql` contém a definição do banco de dados, incluindo a criação de tabelas e inserção de dados iniciais. As tabelas incluídas são:
+The `small_business.sql` file contains the database definition, including table creation and initial data insertion. The tables included are:
 
-- `employees`: Armazena informações sobre os funcionários.
-- `customers`: Armazena informações sobre os clientes.
-- `services`: Armazena informações sobre os serviços oferecidos.
-- `appointments`: Armazena informações sobre os agendamentos de serviços.
-- `days`, `months`, `years`: Tabelas auxiliares para armazenar dias, meses e anos.
-- `times`: Armazena intervalos de tempo disponíveis.
-- `purchases`: Armazena informações sobre compras realizadas.
-- `payment_methods`: Armazena métodos de pagamento disponíveis.
-- `promotions`: Armazena promoções aplicáveis aos serviços.
+- `employees`: Stores information about employees.
+- `customers`: Stores information about customers.
+- `services`: Stores information about the services offered.
+- `appointments`: Stores information about service appointments.
+- `days`, `months`, `years`: Auxiliary tables to store days, months, and years.
+- `times`: Stores available time intervals.
+- `purchases`: Stores information about completed purchases.
+- `payment_methods`: Stores available payment methods.
+- `promotions`: Stores promotions applicable to services.
 
-### Script Shell para Gerenciamento
+### Management Shell Script
 
-O arquivo `small_business.sh` é um script em Shell que permite a interação com o banco de dados através de um menu. As funcionalidades incluem:
+The `small_business.sh` file is a Shell script that allows interaction with the database through a menu. The functionalities include:
 
-- Consultar informações de clientes por nome, telefone ou email.
-- Visualizar a agenda semanal com disponibilidade de horários.
-- Consultar serviços disponíveis.
-- Criar, visualizar e cancelar agendamentos.
+- Query customer information by name, phone, or email.
+- View the weekly schedule with available time slots.
+- Query available services.
+- Create, view, and cancel appointments.
 
-## Como Usar
+## How to Use
 
-### Configuração do Banco de Dados
+### Database Setup
 
-1. **Criação do Banco de Dados**: Para criar o banco de dados e suas tabelas, execute o arquivo SQL com o comando:
+1. **Create the Database**: To create the database and its tables, run the SQL file with the command:
     ```bash
     psql -U <username> -f small_business.sql
     ```
-    Certifique-se de substituir `<username>` pelo nome do usuário do banco de dados PostgreSQL.
+    Make sure to replace `<username>` with the PostgreSQL database username.
 
-### Execução do Script Shell
+### Run the Shell Script
 
-1. **Permissão de Execução**: Garanta que o script tenha permissão de execução:
+1. **Execution Permission**: Ensure that the script has execution permission:
     ```bash
     chmod +x small_business.sh
     ```
 
-2. **Executar o Script**: Execute o script para iniciar o sistema de gerenciamento:
+2. **Run the Script**: Execute the script to start the management system:
     ```bash
     ./small_business.sh
     ```
 
-### Navegação no Menu
+### Menu Navigation
 
 - **Main Menu**:
-  - **1) Consult Customer**: Permite consultar informações de clientes por nome, telefone ou email.
-  - **2) Consult Agenda**: Visualiza a agenda semanal com os horários disponíveis e permite criar ou cancelar agendamentos.
-  - **3) Consult Services**: Lista todos os serviços disponíveis.
-  - **4) Exit**: Sai do sistema.
+  - **1) Consult Customer**: Allows querying customer information by name, phone, or email.
+  - **2) Consult Agenda**: View the weekly schedule with available time slots and create or cancel appointments.
+  - **3) Consult Services**: Lists all available services.
+  - **4) Exit**: Exits the system.
 
 - **Consult Customer Menu**:
-  - **1) Name**: Consulta cliente pelo nome.
-  - **2) Phone**: Consulta cliente pelo telefone.
-  - **3) Email**: Consulta cliente pelo email.
-  - **4) Back**: Retorna ao menu principal.
+  - **1) Name**: Query customer by name.
+  - **2) Phone**: Query customer by phone.
+  - **3) Email**: Query customer by email.
+  - **4) Back**: Returns to the main menu.
 
 - **Agenda Menu**:
-  - **1) Create Appointment**: Cria um novo agendamento.
-  - **2) View Weekly Calendar**: Visualiza a agenda semanal.
-  - **3) Cancel Appointment**: Cancela um agendamento existente.
-  - **4) Back**: Retorna ao menu principal.
+  - **1) Create Appointment**: Creates a new appointment.
+  - **2) View Weekly Calendar**: Views the weekly schedule.
+  - **3) Cancel Appointment**: Cancels an existing appointment.
+  - **4) Back**: Returns to the main menu.
 
-## Tecnologias Utilizadas
+## Technologies Used
 
-- **PostgreSQL**: Para gerenciamento do banco de dados.
-- **Shell Script**: Para a interface de linha de comando e interação com o banco de dados.
+- **PostgreSQL**: For database management.
+- **Shell Script**: For command-line interface and database interaction.
 
-## Contribuição
+## Contribution
 
-Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou enviar pull requests no [repositório do GitHub](https://github.com/username/small-business-management).
+Contributions are welcome! Feel free to open issues or submit pull requests on the [GitHub repository](https://github.com/username/small-business-management).
 
-## Licença
+## License
 
-Este projeto está licenciado sob a [MIT License](LICENSE).
-
----
+This project is licensed under the [MIT License](LICENSE).
