@@ -28,6 +28,7 @@ The `small_business.sql` file contains the database definition, including table 
 - `purchases`: Stores information about completed purchases.
 - `payment_methods`: Stores available payment methods.
 - `promotions`: Stores promotions applicable to services.
+- `users`: Stores user credentials and roles for authentication.
 
 ### Management Shell Script
 
@@ -37,12 +38,28 @@ The `small_business.sh` file is a Shell script that allows interaction with the 
 - View the weekly schedule with available time slots.
 - Query available services.
 - Create, view, and cancel appointments.
+- Authenticate users to control access based on roles (e.g., master and user).
+
+### Authentication System
+
+The system includes an authentication feature to ensure that only authorized users can access certain functionalities. The `auth.sh` script handles user login, verifying credentials against the `users` table in the database. This table uses `pgcrypto` for secure password storage and verification.
+
+#### Benefits of Using `pgcrypto`
+
+- **Enhanced Security:** By storing passwords as cryptographic hashes rather than plain text, `pgcrypto` helps protect user credentials even if the database is compromised.
+- **Password Hashing:** The use of `pgcrypto` ensures that passwords are hashed using strong algorithms, adding a layer of security.
+- **Role-Based Access Control:** The system differentiates between roles (e.g., master and user), allowing finer control over access to administrative features.
 
 ## How to Use
 
 ### Database Setup
 
-1. **Create the Database**: To create the database and its tables, run the SQL file with the command:
+1. **Ensure `pgcrypto` is installed**: Before creating the database, ensure that the `pgcrypto` extension is installed in PostgreSQL:
+    ```sql
+    CREATE EXTENSION IF NOT EXISTS pgcrypto;
+    ```
+
+2. **Create the Database**: To create the database and its tables, run the SQL file with the command:
     ```bash
     psql -U <username> -f small_business.sql
     ```
